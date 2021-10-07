@@ -12,4 +12,8 @@ export class AccountComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  id = 45654;
+  name = "asdasd";
+
+
 }
