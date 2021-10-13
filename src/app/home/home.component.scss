@@ -16,7 +16,7 @@
 .home-title {
   font-size: 4em;
   font-family: $title-font;
-  color: orange;
+  color: $home-font-color;
   line-height: 1.5;
 }
 .home-text {
@@ -24,7 +24,7 @@
   word-spacing: 3px;
   line-height: 2;
   text-align: center;
-  color: orange;
+  color: $home-font-color;
 }
 
 .btn {
@@ -37,20 +37,20 @@
 }
 
 .rules-btn {
-  background-color: lightseagreen;
+  background-color: $secondary-color-bnt;
   color: white;
   border: 2px white solid;
   transition: all 0.3s ease-in;
   &:hover {
     background-color: white;
-    color: lightseagreen;
-    border: 2px lightseagreen solid;
+    color: $secondary-color-bnt;
+    border: 2px $secondary-color-bnt solid;
     transition: all 0.3s ease-in;
   }
 }
 
 .nav-btn {
-  background-color: orange;
+  background-color: $main-color-btn;
   color: white;
   border: 2.5px black solid;
   transition: all 0.3s ease-out;
@@ -58,6 +58,6 @@
     transition: all 0.3s ease-in;
     background-color: black;
     color: white;
-    border: 2px orange solid;
+    border: 2px $main-color-btn solid;
   }
 }

@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+//Fonts imports
 @font-face {
   font-family: "title-font";
   src: url("./assets/fonts/Orbitron-SemiBold.ttf");
@@ -8,8 +9,14 @@
   src: url("./assets/fonts/Orbitron-Regular.ttf");
 }
 
+//Global variables
 $title-font: "title-font";
 $text-font: "text-font";
+$home-font-color: orange;
+$main-color-btn: orange;
+$secondary-color-bnt: lightseagreen;
+
+//Global styles
 * {
   margin: 0;
   padding: 0;
