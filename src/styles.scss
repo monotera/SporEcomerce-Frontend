@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "title-font";
+  src: url("./assets/fonts/Orbitron-SemiBold.ttf");
+}
+@font-face {
+  font-family: "text-font";
+  src: url("./assets/fonts/Orbitron-Regular.ttf");
+}
+
+$title-font: "title-font";
+$text-font: "text-font";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
