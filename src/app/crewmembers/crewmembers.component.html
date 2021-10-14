@@ -1,3 +1,41 @@
-<div>
-  <p>crewmembers works!</p>
-</div>
+<section class="crew-wrapper-bg">
+  <div class="crew-wrapper" *ngIf="crew.id != -1">
+    <h1 class="crew-title">Welcome back chief</h1>
+    <section class="crew-section">
+      <h2 class="crew-subtitle">This is your crew</h2>
+      <ul>
+        <li>crew id: {{crew.id}}</li>
+        <li>crew name:{{crew.crew_name}}</li>
+        <li>crew acc time: {{crew.accTime}}</li>
+        <li>crew credits: {{crew.credits}}</li>
+      </ul>
+    </section>
+    <section class="crew-section">
+      <h2 class="crew-subtitle">Take a look at your ship</h2>
+      <ul>
+        <li>spaceship id: {{crew.space_crew.id}}</li>
+        <li>spaceship name: {{crew.space_crew.ship_name}}</li>
+        <li>spaceship load: {{crew.space_crew.ship_load}}</li>
+        <li>spaceship velocity: {{crew.space_crew.velocity}}</li>
+      </ul>
+    </section>
+    <section class="crew-section">
+      <h2 class="crew-subtitle">Here are the crew products</h2>
+      <div class="product-crew" *ngFor="let product of crew.products">
+        <h3>{{product.product.product_name}}</h3>
+        <ul>
+          <li>product id: {{product.product.id}}</li>
+          <li>Product load capacity: {{product.product.load_capacity}}</li>
+          <li>Product stock: {{product.stock}}</li>
+          <li>Product demand: {{product.demand}}</li>
+          <li>Product sales price:{{product.sales_price}}</li>
+          <li>Product purchase price: {{product.purchase_price}}</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+  <div class="crew-error" *ngIf="crew.id == -1">
+    <h1>You dont have a crew chief</h1>
+  </div>
+
+</section>
