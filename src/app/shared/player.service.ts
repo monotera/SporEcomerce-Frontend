@@ -1,17 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Crew } from '../model/crew';
+import { Player } from '../model/player';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CrewService {
+export class PlayerService {
 
   constructor(private http: HttpClient) {
 
   }
-  findCrew(id: number):Observable<Crew> {
-      return this.http.get<Crew>("http://localhost:8080/crew?crew_id="+id)
+  findPlayer(id: number):Observable<Player> {
+      return this.http.get<Player>("http://localhost:8080/player?player_id="+id)
   }
 }

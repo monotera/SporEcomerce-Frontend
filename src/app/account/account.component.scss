@@ -1,0 +1,57 @@
+@import "../../styles.scss";
+
+.account-wrapper-bg {
+  max-width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Cellipse fill='none' stroke-width='200' id='a' rx='600' ry='450'/%3E%3C/defs%3E%3Cg style='transform-origin:center'%3E%3Cg transform='' style='transform-origin:center'%3E%3Cg transform='rotate(-160 0 0)' style='transform-origin:center'%3E%3Cg transform='translate(1000 750)'%3E%3Cuse stroke='%2327002B' href='%23a' transform='rotate(-60 0 0) scale(0.4)'/%3E%3Cuse stroke='%232b0032' href='%23a' transform='rotate(-50 0 0) scale(0.5)'/%3E%3Cuse stroke='%23300039' href='%23a' transform='rotate(-40 0 0) scale(0.6)'/%3E%3Cuse stroke='%23340040' href='%23a' transform='rotate(-30 0 0) scale(0.7)'/%3E%3Cuse stroke='%23380048' href='%23a' transform='rotate(-20 0 0) scale(0.8)'/%3E%3Cuse stroke='%233c0050' href='%23a' transform='rotate(-10 0 0) scale(0.9)'/%3E%3Cuse stroke='%233f0058' href='%23a' transform=''/%3E%3Cuse stroke='%23430061' href='%23a' transform='rotate(10 0 0) scale(1.1)'/%3E%3Cuse stroke='%2346006a' href='%23a' transform='rotate(20 0 0) scale(1.2)'/%3E%3Cuse stroke='%23480073' href='%23a' transform='rotate(30 0 0) scale(1.3)'/%3E%3Cuse stroke='%234a007c' href='%23a' transform='rotate(40 0 0) scale(1.4)'/%3E%3Cuse stroke='%234c0086' href='%23a' transform='rotate(50 0 0) scale(1.5)'/%3E%3Cuse stroke='%234d008f' href='%23a' transform='rotate(60 0 0) scale(1.6)'/%3E%3Cuse stroke='%234e0099' href='%23a' transform='rotate(70 0 0) scale(1.7)'/%3E%3Cuse stroke='%234e00a4' href='%23a' transform='rotate(80 0 0) scale(1.8)'/%3E%3Cuse stroke='%234d00ae' href='%23a' transform='rotate(90 0 0) scale(1.9)'/%3E%3Cuse stroke='%234c00b9' href='%23a' transform='rotate(100 0 0) scale(2)'/%3E%3Cuse stroke='%234900c4' href='%23a' transform='rotate(110 0 0) scale(2.1)'/%3E%3Cuse stroke='%234400d0' href='%23a' transform='rotate(120 0 0) scale(2.2)'/%3E%3Cuse stroke='%233e00db' href='%23a' transform='rotate(130 0 0) scale(2.3)'/%3E%3Cuse stroke='%233500e7' href='%23a' transform='rotate(140 0 0) scale(2.4)'/%3E%3Cuse stroke='%232600f3' href='%23a' transform='rotate(150 0 0) scale(2.5)'/%3E%3Cuse stroke='%230000FF' href='%23a' transform='rotate(160 0 0) scale(2.6)'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  .account-error {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2em;
+  }
+}
+
+.account-wrapper {
+  background-color: white;
+  display: flex;
+  margin: 5em 0;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 50px;
+  justify-content: center;
+  width: 50%;
+  padding: 5em 0;
+
+  .account-title {
+    color: orange;
+    font-family: $title-font;
+    font-size: 2.5em;
+  }
+  .account-section {
+    margin: 1em 0;
+    display: flex;
+    padding: 1em 0;
+    flex-direction: column;
+    align-items: center;
+    font-family: $text-font;
+    text-align: center;
+    li {
+      font-size: 1.1em;
+      line-height: 2;
+    }
+    .account-subtitle {
+      font-family: $title-font;
+      font-size: 2em;
+      line-height: 3;
+    }
+  }
+
+}

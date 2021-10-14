@@ -1,3 +1,25 @@
-<div>
-  <h1>account works!</h1>
-</div>
+<section class="account-wrapper-bg">
+
+  <div class="account-wrapper" *ngIf="player.id != -1">
+    <h1 class="account-title">Welcome back chief</h1>
+    <section class="account-section">
+      <h2 class="account-subtitle">This is your account</h2>
+      <ul>
+        <li>Player id: {{player.id}}</li>
+        <li>Player name: {{player.player_name}}</li>
+        <li>Player role: {{player.player_role}}</li>
+      </ul>
+    </section>
+    <section class="account-section">
+      <h2 class="crew-subtitle">Take a look at your crew</h2>
+      <ul>
+        <li>crew name:{{player.crewmembers.crew_name}}</li>
+      </ul>
+    </section>
+  </div>
+  <!-- The user needs to change the data -->
+  <div class="crew-error" *ngIf="player.id == -1">
+    <h1>You dont have a account chief</h1>
+  </div>
+
+</section>
