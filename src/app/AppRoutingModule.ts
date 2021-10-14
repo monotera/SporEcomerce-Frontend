@@ -9,7 +9,7 @@ import { AccountComponent } from './account/account.component';
 import { ComerceComponent } from './comerce/comerce.component';
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent},
+  {path: '', component: HomeComponent},
   {path: 'navigation', component: NavigationComponent},
   {path: 'info', component: InfoComponent},
   {path: 'crewmembers', component: CrewmembersComponent},

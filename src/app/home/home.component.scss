@@ -1,0 +1,63 @@
+@import "../../styles.scss";
+.home-wrapper {
+  background-image: url("../../assets/img/home-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.692);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.home-title {
+  font-size: 4em;
+  font-family: $title-font;
+  color: $home-font-color;
+  line-height: 1.5;
+}
+.home-text {
+  font-family: $text-font;
+  word-spacing: 3px;
+  line-height: 2;
+  text-align: center;
+  color: $home-font-color;
+}
+
+.btn {
+  border-radius: 20px;
+  font-size: 0.9em;
+  padding: 0.5em 3em;
+  margin: 1em 2em;
+  cursor: pointer;
+  font-family: $text-font;
+}
+
+.rules-btn {
+  background-color: $secondary-color-bnt;
+  color: white;
+  border: 2px white solid;
+  transition: all 0.3s ease-in;
+  &:hover {
+    background-color: white;
+    color: $secondary-color-bnt;
+    border: 2px $secondary-color-bnt solid;
+    transition: all 0.3s ease-in;
+  }
+}
+
+.nav-btn {
+  background-color: $main-color-btn;
+  color: white;
+  border: 2.5px black solid;
+  transition: all 0.3s ease-out;
+  &:hover {
+    transition: all 0.3s ease-in;
+    background-color: black;
+    color: white;
+    border: 2px $main-color-btn solid;
+  }
+}
