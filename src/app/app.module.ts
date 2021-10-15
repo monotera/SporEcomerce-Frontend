@@ -12,6 +12,9 @@ import { AccountComponent } from './account/account.component';
 import { ComerceComponent } from './comerce/comerce.component';
 import { HeaderComponent} from './header/header.component';
 import { LoaderComponent } from './loader/loader.component'
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { Error404Component } from './error404/error404.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +26,15 @@ import { LoaderComponent } from './loader/loader.component'
     CrewmembersComponent,
     AccountComponent,
     ComerceComponent,
-    LoaderComponent
+    LoaderComponent,
+    Error404Component,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
