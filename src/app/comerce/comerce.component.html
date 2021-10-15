@@ -21,7 +21,7 @@
               [ngClass]="amounts[index] < 1 || amounts[index] > product.stock? 'error' : ''">
             <div class="product-info-item" class="commerce-btn-wrapper">
               <button class="commerce-btn buy-btn" [disabled]="amounts[index] < 1 || amounts[index] > product.stock"
-                (click)="buy(index,product.id)" *ngIf="product.sp_">Buy</button>
+                (click)="buy(index,product)" *ngIf="product.sp_">Buy</button>
               <button class="commerce-btn sell-btn" [disabled]="amounts[index] < 1 || amounts[index] > product.stock"
                 *ngIf="product.pp_" (click)="sell(index,product.id)">Sell</button>
             </div>
