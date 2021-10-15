@@ -17,9 +17,11 @@ export class CrewmembersComponent implements OnInit {
   constructor(private crewService: CrewService,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    console.log(this.crew)
     const firstParam: string | null = this.route.snapshot.queryParamMap.get('id');
     if(firstParam != null)
       this.crewService.findCrew(Number(firstParam)).subscribe(crew => this.crew = crew)
+    
   }
 
 }

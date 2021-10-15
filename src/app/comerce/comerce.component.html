@@ -1,4 +1,28 @@
 <div>
-  <p>comerce works!</p>
-</div>
+  <app-loader *ngIf="!isLoaded"></app-loader>
+  <div *ngIf="isLoaded">
+    <h1>Welcome to {{star.name}} commerce</h1>
+    <h2>Here is a list of planets where you can trade</h2>
+    <div class="planet-list">
+      <div *ngFor="let planet of star.planetList">
+        <h2>{{planet.planet_name}}</h2>
+        <ul>
+          <li *ngFor="let product of planet.product_list">
+            <h3 class="product-title">{{product.product.product_name}}</h3>
+            <div class="product-info">
+              <p>Stock: {{product.stock}}</p>
+              <p *ngIf="product.sp_">Sales price: {{product.sales_price}}</p>
+              <p *ngIf="product.pp_">Purchase price: {{product.purchase_price}}</p>
+              <div class="commerce-btn-wrapper">
+                <button *ngIf="product.sp_">Buy</button>
+                <button *ngIf="product.pp_">Sell</button>
+              </div>
+            </div>
+          </li>
+        </ul>
 
+      </div>
+    </div>
+
+  </div>
+</div>
