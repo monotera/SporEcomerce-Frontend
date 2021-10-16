@@ -18,18 +18,22 @@ export class ComerceComponent implements OnInit {
   products_index: number[] =[] 
   star: Star = new Star(0, "", [])
   credits:number = 0
-  
+  crew_id: string | null = null
+  star_id: string | null = null
   isLoaded: boolean = false
+  crew_products: any[] = []
 
   constructor(private starService: StarService, private route: ActivatedRoute, private _router: Router,private crewService: CrewService) { }
-  crew_id: string | null = null
-  star_id:string|null = null
+  
   ngOnInit(): void {
     //TODO: camiar cuando ya se sepan identificar los usuarios
     //http://localhost:4200/comerce?star_id=11&crew_id=219
     this.star_id = this.route.snapshot.queryParamMap.get('star_id');
     this.crew_id = this.route.snapshot.queryParamMap.get('crew_id');
-    this.crewService.findCrew(Number(this.crew_id)).subscribe(crew => this.credits = crew.credits,err =>this._router.navigateByUrl('/crew_not_found'))
+    this.crewService.findCrew(Number(this.crew_id)).subscribe(crew => {
+      this.credits = crew.credits
+      this.crew_products = crew.products
+    }, err => this._router.navigateByUrl('/crew_not_found'))
     this.starService.findCrew(Number(this.star_id)).subscribe(star => {
       this.star = star
       this.star.planetList.forEach(planet => {
@@ -49,7 +53,6 @@ export class ComerceComponent implements OnInit {
     return index;
   }
   buy(input_index: number,pxp:Productxplanet) {
-    console.log(this.amounts[input_index])
     if (this.amounts[input_index] < 1 || this.amounts[input_index] > pxp.stock) {
       alert("Error! illegal action!")
       return
@@ -61,8 +64,25 @@ export class ComerceComponent implements OnInit {
       alert("Error!!")
     })
   }
-  sell(input_index: number, pxp_id: number) {
-    console.log(this.amounts[input_index])
-    console.log(pxp_id)
+  sell(input_index: number, pxp: Productxplanet) {
+    let found = this.crew_products.find(product => pxp.product.id == product.product.id)
+    if (found) {
+      if (found.stock >= this.amounts[input_index]) {
+        this.starService.sellProduct(this.amounts[input_index], pxp.id, found.id).subscribe(res => {
+          alert("Your transaction was successful!")
+        window.location.reload(true)
+      }, err => {
+        alert("Error!!")
+      })
+      }
+      else {
+        alert("Your crew doesn't have the amount items required!")
+      }
+    } else {
+      alert("Your crew doesn't have this item!")
+    }
+  }
+  redirect() {
+      this._router.navigateByUrl(`/crew?id=${this.crew_id}`); 
   }
 }

@@ -24,4 +24,8 @@ constructor(private http: HttpClient) {
   buyProduct(amount: number, pxp_id: number, crew_id: number){
     return this.http.put(`http://localhost:8080/pxp/buy?amountProducts=${amount}&pxp_id=${pxp_id}&crew_id=${crew_id}`,this.httpOptions);
   }
+
+  sellProduct(amountProducts: number, pxp_id: number, pxc_id: number) {
+    return this.http.put(`http://localhost:8080/pxp/sell?amountProducts=${amountProducts}&pxp_id=${pxp_id}&pxc_id=${pxc_id}`,this.httpOptions);
+  }
 }

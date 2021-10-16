@@ -3,6 +3,7 @@
   <section class="commerce-wrapper" *ngIf="isLoaded">
     <h1 class="commerce-title">Welcome to {{star.name}} commerce</h1>
     <h2 class="commerce-subTitle">Here are your credits chief: {{credits}}</h2>
+    <button class="productsBtn" (click)="redirect()">Check your products</button>
     <h2 class="commerce-subTitle">This is the list of planets where you can trade:</h2>
     <div class="planet-list" *ngFor="let planet of star.planetList">
       <h2 class="planet-name">{{planet.planet_name}}</h2>
@@ -23,7 +24,7 @@
               <button class="commerce-btn buy-btn" [disabled]="amounts[index] < 1 || amounts[index] > product.stock"
                 (click)="buy(index,product)" *ngIf="product.sp_">Buy</button>
               <button class="commerce-btn sell-btn" [disabled]="amounts[index] < 1 || amounts[index] > product.stock"
-                *ngIf="product.pp_" (click)="sell(index,product.id)">Sell</button>
+                *ngIf="product.pp_" (click)="sell(index,product)">Sell</button>
             </div>
           </div>
         </li>

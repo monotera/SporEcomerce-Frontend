@@ -1,3 +1,4 @@
+<app-loader *ngIf="!isLoaded"></app-loader>
 <section class="crew-wrapper-bg">
   <div class="crew-wrapper" *ngIf="crew.id != -1">
     <h1 class="crew-title">Welcome back chief</h1>
@@ -22,7 +23,7 @@
     <section class="crew-section">
       <h2 class="crew-subtitle">Here are the crew products</h2>
       <div class="product-crew" *ngFor="let product of crew.products">
-        <h3>{{product.product.product_name}}</h3>
+        <h3 class="product-title">{{product.product.product_name}}</h3>
         <ul>
           <li>product id: {{product.product.id}}</li>
           <li>Product load capacity: {{product.product.load_capacity}}</li>

@@ -13,6 +13,7 @@ import { CrewService } from '../shared/crew.service';
 })
 export class CrewmembersComponent implements OnInit {
   crew: Crew = new Crew(-1,"",0,0,null,new Spaceship(0,"",0,0))
+  isLoaded: boolean = false
 
   constructor(private crewService: CrewService,private route: ActivatedRoute) { }
 
@@ -20,7 +21,11 @@ export class CrewmembersComponent implements OnInit {
     console.log(this.crew)
     const firstParam: string | null = this.route.snapshot.queryParamMap.get('id');
     if(firstParam != null)
-      this.crewService.findCrew(Number(firstParam)).subscribe(crew => this.crew = crew)
+      this.crewService.findCrew(Number(firstParam)).subscribe(crew => {
+        this.crew = crew
+        this.isLoaded = true
+        
+      })
     
   }
 

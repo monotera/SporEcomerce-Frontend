@@ -13,7 +13,14 @@ li {
   align-items: center;
   justify-content: center;
 }
-
+.productsBtn {
+  color: lightseagreen;
+  background-color: white;
+  border: 2px lightseagreen solid;
+  padding: 0.5em 2em;
+  border-radius: 20px;
+  font-family: $title-font;
+}
 .commerce-wrapper {
   background-color: white;
   border-radius: 50px;
@@ -111,8 +118,9 @@ li {
     .sell-btn {
       background-color: orange;
       color: white;
-      transition: 0.5s ease-in all;
       border: 2px solid white;
+      transition: 0.5s ease-in all;
+
       &:hover {
         background-color: white;
         color: orange;
