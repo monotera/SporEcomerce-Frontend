@@ -8,12 +8,12 @@
       <section class="nav-section">
         <div class="col">
           <h2 class="nav-subtitle">{{star.name}}</h2>
-          <!--Add link required-->
-          <a class="button" href="/" *ngIf="star.isInHabited">Comerce</a>
-          <a class="nobutton" *ngIf="!star.isInHabited">Comerce</a>
+          <!--Add link required id_crew id_star-->
+          <a class="button" href="/" *ngIf="!star.isInHabited">Comerce</a>
+          <a class="nobutton" *ngIf="star.isInHabited">Comerce</a>
         </div>
         <div class="nearstars" *ngFor="let stars of starList">
-            <li><a class="link" href="http://localhost:4200/navigation?star_id={{stars.id}}">{{stars.name}} isHabited: {{stars.isInHabited}}</a></li>
+            <li><a class="link" (click) = "moveSpaceship(stars.id)" href="http://localhost:4200/navigation?star_id={{stars.id}}">{{stars.name}} isHabited: {{stars.isInHabited}}</a></li>
 
         </div>
       </section>

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Star } from '../model/star';
@@ -13,18 +13,20 @@ import { PlayerService } from '../shared/player.service';
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss']
 })
-export class NavigationComponent implements OnInit, OnDestroy {
+export class NavigationComponent implements OnInit {
 
   star: Star = new Star(-1,-1,-1,-1,"",null,false,null, null)
   player: Player = new Player(-1,"","",new Crew(-1,"",0,0,null,new Spaceship(0,"",0,0)))
-  starList: Star[] = [new Star(193,-1,-1,-1,"Amarilla",null,false, null, null),
-                      new Star(196,-1,-1,-1,"Azul",null,false, null, null),
+  starList: Star[] = [new Star(197,-1,-1,-1,"Amarilla",null,false, null, null),
+                      new Star(11,-1,-1,-1,"Azul",null,false, null, null),
                       new Star(201,-1,-1,-1,"Azul",null,false, null, null),
                       new Star(-1,-1,-1,-1,"Azul",null,false, null, null)]
+  idStarN: number[] = []
 
   constructor(private starService: StarService,private route: ActivatedRoute, private playerService: PlayerService) { }
 
   ngOnInit(): void {
+    //traer el primer jugador
     const player_param: string | null = this.route.snapshot.queryParamMap.get('player_id');
     const star_param: string | null = this.route.snapshot.queryParamMap.get('star_id');
     if(player_param != null)
@@ -33,7 +35,8 @@ export class NavigationComponent implements OnInit, OnDestroy {
     if(star_param != null)
       this.starService.findStar(Number(star_param)).subscribe(star => this.star = star)
   }
-  ngOnDestroy(): void{
-    console.log(this.player);
+
+  moveSpaceship(id:number){
+
   }
 }
