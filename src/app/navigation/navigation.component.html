@@ -9,11 +9,12 @@
         <div class="col">
           <h2 class="nav-subtitle">{{star.name}}</h2>
           <!--Add link required-->
-          <a class="link" href="url" *ngIf="star.isInHabited">Comerce</a>
-          <a class="nolink" *ngIf="!star.isInHabited">Comerce</a>
+          <a class="button" href="/" *ngIf="star.isInHabited">Comerce</a>
+          <a class="nobutton" *ngIf="!star.isInHabited">Comerce</a>
         </div>
-        <div class="nearstars" *ngFor="let star of starList">
-            <li>Name: {{star.name}} isHabited: {{star.isInHabited}}</li>
+        <div class="nearstars" *ngFor="let stars of starList">
+            <li><a class="link" href="http://localhost:4200/navigation?star_id={{stars.id}}">{{stars.name}} isHabited: {{stars.isInHabited}}</a></li>
+
         </div>
       </section>
     </div>
@@ -42,7 +43,7 @@
   </div>
 
   <div class="nav-error" *ngIf="star.id == -1">
-    <h1>You dont have a crew chief</h1>
+    <h1>An error has occurred</h1>
   </div>
 
 </section>
