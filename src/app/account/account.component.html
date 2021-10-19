@@ -1,5 +1,4 @@
 <section class="account-wrapper-bg">
-
   <div class="account-wrapper" *ngIf="player.id != -1">
     <h1 class="account-title">Welcome back chief</h1>
     <section class="account-section">
@@ -32,11 +31,10 @@
     </div>
     <div class="row">
       <a>Enter a new crew id to change: </a>
-      <input id="new-crew" type="text">
+      <input type="text" [(ngModel)]="crewInput" name="filterCrewInput">
       <button class="account-btn crew-btn" (click)="changecrew()">Apply</button>
     </div>
   </div>
-  <!-- The user needs to change the data -->
   <div class="account-error" *ngIf="player.id == -1">
     <h1>You dont have a account chief</h1>
   </div>

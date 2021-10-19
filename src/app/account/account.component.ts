@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Player } from '../model/player';
@@ -14,6 +14,7 @@ import { Spaceship } from '../model/spaceship';
 export class AccountComponent implements OnInit {
 
   player: Player = new Player(-1,"","",new Crew(-1,"",0,0,null,new Spaceship(0,"",0,0)))
+  crewInput: string = ""
 
   constructor(private playerService: PlayerService,private route: ActivatedRoute) { }
 
@@ -32,7 +33,8 @@ export class AccountComponent implements OnInit {
       return
   }
   changecrew(){
-    alert("¡Changes have been made!")
+    alert("¡Changes have been made! "+this.crewInput)
+    this.crewInput = ''
       return
   }
 

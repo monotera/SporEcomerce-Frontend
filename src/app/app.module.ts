@@ -10,6 +10,7 @@ import { InfoComponent } from './info/info.component';
 import { CrewmembersComponent } from './crewmembers/crewmembers.component';
 import { AccountComponent } from './account/account.component';
 import { ComerceComponent } from './comerce/comerce.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ComerceComponent } from './comerce/comerce.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
