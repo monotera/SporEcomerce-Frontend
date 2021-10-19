@@ -15,10 +15,12 @@ import { PlayerService } from '../shared/player.service';
 })
 export class NavigationComponent implements OnInit, OnDestroy {
 
-  star: Star = new Star(-1,-1,-1,-1,"",false,null, null)
+  star: Star = new Star(-1,-1,-1,-1,"",null,false,null, null)
   player: Player = new Player(-1,"","",new Crew(-1,"",0,0,null,new Spaceship(0,"",0,0)))
-  starList: Star[] = [new Star(-1,-1,-1,-1,"",false,null, null),
-                      new Star(-1,-1,-1,-1,"",false,null, null)]
+  starList: Star[] = [new Star(-1,-1,-1,-1,"Amarilla",null,false, null, null),
+                      new Star(-1,-1,-1,-1,"Azul",null,false, null, null),
+                      new Star(-1,-1,-1,-1,"Azul",null,false, null, null),
+                      new Star(-1,-1,-1,-1,"Azul",null,false, null, null)]
 
   constructor(private starService: StarService,private route: ActivatedRoute, private playerService: PlayerService) { }
 

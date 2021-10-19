@@ -4,8 +4,9 @@ export class Star{
     public x: number,
     public y: number,
     public z: number,
-    public star_name: string,
-    public starHabitated: boolean,
+    public name: string,
+    public nearStars: any,
+    public isInHabited: boolean,
     public spaceLobby: any,
     public planetList: any,
   ){}
