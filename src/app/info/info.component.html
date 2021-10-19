@@ -1,17 +1,25 @@
 <section class="info-wrapper-bg">
-  <div clas="info-wrapper">
-    <h1 class="info-title">Info</h1>
+  <div class="info-wrapper" *ngIf="true">
+    <h1 class="info-title">Information</h1>
+  </div>
+  <div class="info-wrapper" *ngIf="true">
     <section class="info-section">
-      <h2 class="info-subtitle">Rules</h2>
+      <h2 class="info-subtitle">Objectives</h2>
       <ul>
-        <li> aaaa </li>
-      </ul>
-    </section>
-    <section class="info-section">
-      <h2 class="info-subtitle">Objetives</h2>
-      <ul>
-        <li> aaaa </li>
+        <li>Buy products in the shortest possible time</li>
       </ul>
     </section>
   </div>
+  <div class="info-wrapper2" *ngIf="true">
+    <section class="info-section">
+      <h2 class="info-subtitle">Rules</h2>
+      <ul>
+        <li>The player can only move between the 10 nearest stars.</li>
+      </ul>
+    </section>
+  </div>
+  <div class="info-error" *ngIf="false">
+    <h1>In maintenance</h1>
+  </div>
+
 </section>
