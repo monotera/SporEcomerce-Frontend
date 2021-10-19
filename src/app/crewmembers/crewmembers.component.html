@@ -1,5 +1,5 @@
 <app-loader *ngIf="!isLoaded"></app-loader>
-<section class="crew-wrapper-bg">
+<section *ngIf="isLoaded" class="crew-wrapper-bg">
   <div class="crew-wrapper" *ngIf="crew.id != -1">
     <h1 class="crew-title">Welcome back chief</h1>
     <section class="crew-section">
@@ -16,7 +16,8 @@
       <ul>
         <li>spaceship id: {{crew.space_crew.id}}</li>
         <li>spaceship name: {{crew.space_crew.ship_name}}</li>
-        <li>spaceship load: {{crew.space_crew.ship_load}}</li>
+        <li>spaceship max load: {{crew.space_crew.ship_load}}</li>
+        <li>spaceship available load: {{available_load}}</li>
         <li>spaceship velocity: {{crew.space_crew.velocity}}</li>
       </ul>
     </section>

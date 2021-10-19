@@ -20,6 +20,15 @@ li {
   padding: 0.5em 2em;
   border-radius: 20px;
   font-family: $title-font;
+  cursor: pointer;
+  transition: 0.5s ease-in all;
+
+  &:hover {
+    color: white;
+    background-color: lightseagreen;
+    border: 2px white solid;
+    transition: 0.5s ease-in all;
+  }
 }
 .commerce-wrapper {
   background-color: white;

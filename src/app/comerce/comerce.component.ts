@@ -15,25 +15,31 @@ import { Productxplanet } from '../model/productxplanet';
 export class ComerceComponent implements OnInit {
 
   amounts: number[] = []
-  products_index: number[] =[] 
+  products_index: number[] = []
   star: Star = new Star(0, "", [])
-  credits:number = 0
+  credits: number = 0
   crew_id: string | null = null
   star_id: string | null = null
   isLoaded: boolean = false
   crew_products: any[] = []
+  available_load:number = 0
 
-  constructor(private starService: StarService, private route: ActivatedRoute, private _router: Router,private crewService: CrewService) { }
-  
+  constructor(private starService: StarService, private route: ActivatedRoute, private _router: Router, private crewService: CrewService) { }
+
   ngOnInit(): void {
     //TODO: camiar cuando ya se sepan identificar los usuarios
     //http://localhost:4200/comerce?star_id=11&crew_id=219
+
     this.star_id = this.route.snapshot.queryParamMap.get('star_id');
     this.crew_id = this.route.snapshot.queryParamMap.get('crew_id');
     this.crewService.findCrew(Number(this.crew_id)).subscribe(crew => {
       this.credits = crew.credits
       this.crew_products = crew.products
     }, err => this._router.navigateByUrl('/crew_not_found'))
+
+    this.crewService.getAvailableLoad(Number(this.crew_id)).subscribe(capacity => { this.available_load = capacity })
+    
+    //fill inputs with 1
     this.starService.findCrew(Number(this.star_id)).subscribe(star => {
       this.star = star
       this.star.planetList.forEach(planet => {
@@ -44,17 +50,21 @@ export class ComerceComponent implements OnInit {
       this.isLoaded = true
 
     }, err => {
-      this._router.navigateByUrl('/star_not_found'); 
+      this._router.navigateByUrl('/star_not_found');
     })
-      
-   
+
+
   }
   trackByIndex(index: number, obj: any): any {
     return index;
   }
-  buy(input_index: number,pxp:Productxplanet) {
+  buy(input_index: number, pxp: Productxplanet) {
     if (this.amounts[input_index] < 1 || this.amounts[input_index] > pxp.stock) {
       alert("Error! illegal action!")
+      return
+    }
+    if (this.available_load < pxp.product.load_capacity * this.amounts[input_index]) {
+      alert("You dont have enogh space to buy this many items!!")
       return
     }
     this.starService.buyProduct(this.amounts[input_index], pxp.id, Number(this.crew_id)).subscribe(res => {
@@ -68,12 +78,18 @@ export class ComerceComponent implements OnInit {
     let found = this.crew_products.find(product => pxp.product.id == product.product.id)
     if (found) {
       if (found.stock >= this.amounts[input_index]) {
-        this.starService.sellProduct(this.amounts[input_index], pxp.id, found.id).subscribe(res => {
-          alert("Your transaction was successful!")
-        window.location.reload(true)
-      }, err => {
-        alert("Error!!")
-      })
+        if (found) {
+          this.starService.sellProduct(this.amounts[input_index], pxp.id, found.id).subscribe(res => {
+            alert("Your transaction was successful!")
+            window.location.reload(true)
+          }, err => {
+            alert("Error you reach your max !!")
+          })
+        }
+        else {
+          alert("Your load capacity is at max!")
+        }
+
       }
       else {
         alert("Your crew doesn't have the amount items required!")
@@ -83,6 +99,6 @@ export class ComerceComponent implements OnInit {
     }
   }
   redirect() {
-      this._router.navigateByUrl(`/crew?id=${this.crew_id}`); 
+    this._router.navigateByUrl(`/crew?id=${this.crew_id}`);
   }
 }
