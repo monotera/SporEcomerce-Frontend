@@ -29,28 +29,35 @@
   justify-content: center;
   width: 50%;
   padding: 5em 0;
+  font-family: $title-font;
+  margin-left: 1em;
+  margin-right: 1em;
 
   .account-title {
     color: orange;
-    font-family: $title-font;
     font-size: 2.5em;
+    margin: 1em 0;
   }
   .account-section {
-    margin: 1em 0;
     display: flex;
     padding: 1em 0;
     flex-direction: column;
     align-items: center;
-    font-family: $text-font;
     text-align: center;
     li {
       font-size: 1.1em;
       line-height: 2;
     }
     .account-subtitle {
-      font-family: $title-font;
       font-size: 2em;
       line-height: 3;
+    }
+  }
+  .row{
+    flex-direction: row;
+    padding: 1em;
+    .account-btn{
+      margin: 0 1em;
     }
   }
 

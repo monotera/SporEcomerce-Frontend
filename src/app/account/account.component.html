@@ -13,9 +13,28 @@
     <section class="account-section">
       <h2 class="account-subtitle">Take a look at your crew</h2>
       <ul>
-        <li>crew name:{{player.crewmembers.crew_name}}</li>
+        <li>crew name: {{player.crewmembers.crew_name}}</li>
       </ul>
     </section>
+  </div>
+
+  <div class="account-wrapper" *ngIf="player.id != -1">
+    <h1 class="account-title">Config</h1>
+    <div class="row">
+      <a>Enter a new name to change: </a>
+      <input id="new-name" type="text">
+      <button class="account-btn name-btn" (click)="changename()">Apply</button>
+    </div>
+    <div class="row">
+      <a>Enter a new valid role to change: </a>
+      <input id="new-role" type="text">
+      <button class="account-btn role-btn" (click)="changerole()">Apply</button>
+    </div>
+    <div class="row">
+      <a>Enter a new crew id to change: </a>
+      <input id="new-crew" type="text">
+      <button class="account-btn crew-btn" (click)="changecrew()">Apply</button>
+    </div>
   </div>
   <!-- The user needs to change the data -->
   <div class="account-error" *ngIf="player.id == -1">

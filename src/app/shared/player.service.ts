@@ -14,4 +14,8 @@ export class PlayerService {
   findPlayer(id: number):Observable<Player> {
       return this.http.get<Player>("http://localhost:8080/player?player_id="+id)
   }
+  /*
+  modPlayer(id: number, newPlayer: Player):Observable<Player>{
+    //return this.http.put<Player>("http://localhost:8080/player?player_id="+id+"&newPlayer="+newPlayer)
+  }*/
 }

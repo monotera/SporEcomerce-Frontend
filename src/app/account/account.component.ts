@@ -23,5 +23,17 @@ export class AccountComponent implements OnInit {
       this.playerService.findPlayer(Number(firstParam)).subscribe(player => this.player = player)
   }
 
+  changename(){
+    alert("¡Changes have been made!")
+      return
+  }
+  changerole(){
+    alert("¡Changes have been made!")
+      return
+  }
+  changecrew(){
+    alert("¡Changes have been made!")
+      return
+  }
 
 }
