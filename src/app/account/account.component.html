@@ -11,14 +11,14 @@
       </ul>
     </section>
     <section class="account-section">
-      <h2 class="crew-subtitle">Take a look at your crew</h2>
+      <h2 class="account-subtitle">Take a look at your crew</h2>
       <ul>
         <li>crew name:{{player.crewmembers.crew_name}}</li>
       </ul>
     </section>
   </div>
   <!-- The user needs to change the data -->
-  <div class="crew-error" *ngIf="player.id == -1">
+  <div class="account-error" *ngIf="player.id == -1">
     <h1>You dont have a account chief</h1>
   </div>
 
