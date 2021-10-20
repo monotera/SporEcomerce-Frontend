@@ -1,0 +1,15 @@
+<nav class="header-nav">
+    <div class="hamburger" (click)="open()">
+        <div class="line one"></div>
+        <div class="line two"></div>
+        <div class="line three"></div>
+    </div>
+    <ul class="nav-links">
+        <li><a class="nav-link" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"
+                routerLink="/">Home</a></li>
+        <li><a class="nav-link " [routerLinkActive]="'active'" routerLink="/navigation">Navigate</a></li>
+        <li><a class="nav-link " [routerLinkActive]="'active'" routerLink="/info">Rules</a></li>
+        <li><a class="nav-link " [routerLinkActive]="'active'" routerLink="/account">Account</a></li>
+        <li><a class="nav-link " [routerLinkActive]="'active'" routerLink="/comerce">Commerce</a></li>
+    </ul>
+</nav>
