@@ -14,4 +14,10 @@ export class PlayerService {
   findPlayer(id: number):Observable<Player> {
       return this.http.get<Player>("http://localhost:8080/player?player_id="+id)
   }
+  findPos(id: number):Observable<String> {
+    return this.http.get<String>("http://localhost:8080/star?id="+id)
+  }
+  getThePLayer():Observable<Player> {
+    return this.http.get<Player>("http://localhost:8080/player/theplayer")
+  }
 }

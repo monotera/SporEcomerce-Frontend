@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Star } from '../model/star';
 import { Player } from '../model/player';
@@ -22,21 +22,32 @@ export class NavigationComponent implements OnInit {
                       new Star(201,-1,-1,-1,"Azul",null,false, null, null),
                       new Star(-1,-1,-1,-1,"Azul",null,false, null, null)]
   idStarN: number[] = []
+  isLoaded: boolean = false
+  pos: String = ""
 
-  constructor(private starService: StarService,private route: ActivatedRoute, private playerService: PlayerService) { }
+  constructor(private starService: StarService,private route: ActivatedRoute, private playerService: PlayerService, private _router: Router) { }
 
   ngOnInit(): void {
-    //traer el primer jugador
-    const player_param: string | null = this.route.snapshot.queryParamMap.get('player_id');
-    const star_param: string | null = this.route.snapshot.queryParamMap.get('star_id');
-    if(player_param != null)
-      this.playerService.findPlayer(Number(player_param)).subscribe(player => this.player = player)
-    //findMyStar player_param
-    if(star_param != null)
-      this.starService.findStar(Number(star_param)).subscribe(star => this.star = star)
+    this.ngInit()
   }
 
   moveSpaceship(id:number){
+    this._router.navigateByUrl(`/navigation?star_id=${id}`)
+    this.ngInit()
+  }
+
+  ngInit(): void {
+    this.playerService.getThePLayer().subscribe(player => this.player = player, err => {
+      this._router.navigateByUrl('/not_found');})
+
+    const star_param: string | null = this.route.snapshot.queryParamMap.get('star_id');
+
+    if(star_param != null)
+      this.starService.findStar(Number(star_param)).subscribe(star => this.star = star)
+    else{
+      this.playerService.findPos(this.player.id).subscribe(pos => this.pos = pos)
+      this.starService.findStar(Number(this.pos)).subscribe(star => this.star = star)
+    }
 
   }
 }

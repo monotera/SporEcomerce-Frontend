@@ -13,8 +13,7 @@
           <a class="nobutton" *ngIf="star.isInHabited">Comerce</a>
         </div>
         <div class="nearstars" *ngFor="let stars of starList">
-            <li><a class="link" (click) = "moveSpaceship(stars.id)" href="http://localhost:4200/navigation?star_id={{stars.id}}">{{stars.name}} isHabited: {{stars.isInHabited}}</a></li>
-
+            <li><h3 class="link" (click) = "moveSpaceship(stars.id)">{{stars.name}} isHabited: {{stars.isInHabited}}</h3></li>
         </div>
       </section>
     </div>
