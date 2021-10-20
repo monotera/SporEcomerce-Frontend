@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Player } from '../model/player';
 import { Productxplanet } from '../model/productxplanet';
 import { Star } from '../model/star';
 
@@ -27,5 +28,8 @@ constructor(private http: HttpClient) {
 
   sellProduct(amountProducts: number, pxp_id: number, pxc_id: number) {
     return this.http.put(`http://localhost:8080/pxp/sell?amountProducts=${amountProducts}&pxp_id=${pxp_id}&pxc_id=${pxc_id}`,this.httpOptions);
+  }
+  getThePlayer(): Observable<Player> {
+    return this.http.get<Player>("http://localhost:8080/player/theplayer");
   }
 }

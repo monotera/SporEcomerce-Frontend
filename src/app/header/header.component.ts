@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,11 +8,14 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _router: Router) { }
 
+  activeLink:string = ""
   @ViewChild('nav-links') navLinks: any
-  close() {
-    console.log("clo")
+  onClick(route:string) {
+    this.activeLink = route
+    this.open()
+    this._router.navigateByUrl(route);
   }
   open() {
     const navLinks:any = document.querySelector(".nav-links");
@@ -26,6 +30,7 @@ export class HeaderComponent implements OnInit {
   });
   }
   ngOnInit(): void {
+    this.activeLink = this._router.url
   }
 
 }
