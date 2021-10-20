@@ -10,7 +10,11 @@ import { InfoComponent } from './info/info.component';
 import { CrewmembersComponent } from './crewmembers/crewmembers.component';
 import { AccountComponent } from './account/account.component';
 import { ComerceComponent } from './comerce/comerce.component';
-import { HeaderComponent} from './header/header.component'
+import { HeaderComponent} from './header/header.component';
+import { LoaderComponent } from './loader/loader.component'
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { Error404Component } from './error404/error404.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +25,16 @@ import { HeaderComponent} from './header/header.component'
     InfoComponent,
     CrewmembersComponent,
     AccountComponent,
-    ComerceComponent
+    ComerceComponent,
+    LoaderComponent,
+    Error404Component,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
