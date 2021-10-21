@@ -20,7 +20,8 @@ export class AccountComponent implements OnInit {
   roleInput: string = ""
   crewIDInput: string = ""
   crewNameInput: string = ""
-  cent: any = false
+  cent: Boolean = false
+  captain: Boolean = false
   isLoaded: boolean = false
 
 
@@ -29,7 +30,9 @@ export class AccountComponent implements OnInit {
   ngOnInit(): void {
 
     this.starService.getThePlayer().subscribe(player => {this.player = player;
-      this.isLoaded = true
+      this.isLoaded = true;
+      this.captain = false;
+      this.IsCaptain()
     }, err => {
       this._router.navigateByUrl('/star_not_found');
     })
@@ -37,36 +40,72 @@ export class AccountComponent implements OnInit {
   }
 
   changename(){
-    this.cent = false
-    this.playerService.modPLayerName(this.player.id, this.nameInput).subscribe(cent => this.cent = cent)
-    alert(this.cent+"¡Changes have been made!" + this.nameInput)
-    this.nameInput = ''
-    window.location.reload()
-      return
-  }
-  changerole(){
-    if(this.roleInput == "CAPTAIN" || this.roleInput == "PILOT" || this.roleInput == "MERCHANT"){
-      this.playerService.modPlayerRole(this.player.id, this.roleInput)
-      alert("¡Changes have been made!" + this.roleInput)
-    }
+    if(this.nameInput.length>0)
+      this.playerService.modPLayerName(this.player.id, this.nameInput).subscribe(cent => {this.cent = cent;
+        if(this.cent)
+          alert("¡Changes have been made!" + this.nameInput)
+        this.nameInput = ''
+        window.location.reload()
+      }, err => {
+        this._router.navigateByUrl('/err_modPlayerName');
+      })
     else
-      alert("Has entered an incorrect role" + this.roleInput)
-    this.nameInput = ''
-    window.location.reload()
-      return
+      alert("Error")
+  }
+
+  changerole(){
+    this.cent = false
+      if(this.roleInput == "CAPTAIN" || this.roleInput == "PILOT" || this.roleInput == "MERCHANT"){
+        if(this.roleInput == "CAPTAIN" && this.captain)
+          alert("There is already a captain");
+        else{
+          this.playerService.modPlayerRole(this.player.id, this.roleInput).subscribe(cent => {
+            this.cent = cent;
+            if(this.cent)
+              alert("¡Changes have been made! " + this.roleInput);
+            else
+              alert("Error 1")
+            this.roleInput = ''
+            window.location.reload()
+          }, err => {
+            this._router.navigateByUrl('/err_modPlayerRole');
+          })
+        }
+      }
+      else
+        alert("Has entered an incorrect role " + this.roleInput);
+  }
+  IsCaptain(){
+    this.crewService.getIsCaptain(this.player.id).subscribe(captain => {
+      this.captain = captain;
+    }, err => {
+      this._router.navigateByUrl('/err_getIsCaptain');
+    })
   }
   changeByIDcrew(){
-    //Primero traer todos los id de crews y verificar que exista
-    //else para decir que el id no existe
-    //Solo puede existir un Capitan por crew Primero debes cambiar tu rol
-    alert("¡Changes have been made! "+this.crewIDInput)
-    this.crewIDInput = ''
-    window.location.reload()
-      return
+
+    if(this.player.player_role != "CAPTAIN")
+      this.playerService.modIDCrew(this.player.id, Number (this.crewIDInput)).subscribe(player => {
+        this.player = player;
+        if(this.player.crewmembers.id == Number (this.crewIDInput))
+          alert("¡Changes have been made! "+this.crewIDInput);
+        else
+          alert("Has entered an incorrect crew id: "+this.crewIDInput);
+        this.crewIDInput = '';
+        window.location.reload();
+      }, err => {
+        this._router.navigateByUrl('/err_modIDCrew');
+      })
+    else
+      alert("First you must cahnge the captain role")
   }
   changeNamecrew(){
     if(this.player.player_role == "CAPTAIN"){
-
+      this.cent = false;
+      this.crewService.modNameCrew(this.player.crewmembers.id, this.crewNameInput).subscribe(cent => {this.cent = cent},
+        err => {
+        this._router.navigateByUrl('/err_modNameCrew');
+      })
       alert("¡Changes have been made! "+this.crewNameInput)
     }
     else

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Crew } from '../model/crew';
@@ -8,7 +8,12 @@ import { Player } from '../model/player';
   providedIn: 'root'
 })
 export class CrewService {
-
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      Authorization: 'my-auth-token'
+    })
+  };
   constructor(private http: HttpClient) {
 
   }
@@ -21,8 +26,10 @@ export class CrewService {
   getThePlayer(): Observable<Player> {
     return this.http.get<Player>("http://localhost:8080/player/theplayer");
   }
-
-  modNameCrew(){
-
+  getIsCaptain(idPlayer: number): Observable<Boolean>{
+    return this.http.get<Boolean>(`http://localhost:8080/crew/captain?player_id=${idPlayer}`);
+  }
+  modNameCrew(crew_id: number, newName: string){
+    return this.http.put<Boolean>(`http://localhost:8080/crew/change_crewName?crew_id=${crew_id}&newName=${newName}`, this.httpOptions);
   }
 }
