@@ -14,6 +14,9 @@ export class StarService {
   findStar(id: number):Observable<Star> {
     return this.http.get<Star>("http://localhost:8080/star?id="+id)
   }
+  findNearStar(id: number):Observable<Star[]>{
+    return this.http.get<Star[]>("http://localhost:8080/star/near-stars?id="+id)
+  }
   moveSpaceShip(idStar: number, idStarN: number){
     return this.http.get<Boolean>("http://localhost:8080/star?id="+idStar+"&starN?id="+idStarN)
   }

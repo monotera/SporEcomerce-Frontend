@@ -9,11 +9,11 @@
         <div class="col">
           <h2 class="nav-subtitle">{{star.name}}</h2>
           <!--Add link required id_crew id_star-->
-          <a class="button" href="/" *ngIf="!star.isInHabited">Comerce</a>
-          <a class="nobutton" *ngIf="star.isInHabited">Comerce</a>
+          <a class="button" href="/" *ngIf="star.isInHabited">Comerce</a>
+          <a class="nobutton" *ngIf="!star.isInHabited">Comerce</a>
         </div>
         <div class="nearstars" *ngFor="let stars of starList">
-            <li><h3 class="link" (click) = "moveSpaceship(stars.id)">{{stars.name}} isHabited: {{stars.isInHabited}}</h3></li>
+            <li><h3 class="link" (click) = "moveSpaceship(stars.id)">{{stars.name}} <span class="linkBool">isHabited: {{stars.isInHabited}}</span></h3></li>
         </div>
       </section>
     </div>
