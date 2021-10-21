@@ -1,0 +1,141 @@
+@import "../../styles.scss";
+
+li {
+  list-style: none;
+}
+.commerce-bg {
+  background-color: #000000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Cellipse fill='none' stroke-width='200' id='a' rx='600' ry='450'/%3E%3C/defs%3E%3Cg style='transform-origin:center'%3E%3Cg transform='' style='transform-origin:center'%3E%3Cg transform='rotate(-160 0 0)' style='transform-origin:center'%3E%3Cg transform='translate(1000 750)'%3E%3Cuse stroke='%2327002B' href='%23a' transform='rotate(-60 0 0) scale(0.4)'/%3E%3Cuse stroke='%232b0b37' href='%23a' transform='rotate(-50 0 0) scale(0.5)'/%3E%3Cuse stroke='%232f1543' href='%23a' transform='rotate(-40 0 0) scale(0.6)'/%3E%3Cuse stroke='%23321f50' href='%23a' transform='rotate(-30 0 0) scale(0.7)'/%3E%3Cuse stroke='%2333295d' href='%23a' transform='rotate(-20 0 0) scale(0.8)'/%3E%3Cuse stroke='%23343469' href='%23a' transform='rotate(-10 0 0) scale(0.9)'/%3E%3Cuse stroke='%23333e76' href='%23a' transform=''/%3E%3Cuse stroke='%23314882' href='%23a' transform='rotate(10 0 0) scale(1.1)'/%3E%3Cuse stroke='%232d538e' href='%23a' transform='rotate(20 0 0) scale(1.2)'/%3E%3Cuse stroke='%23275e9a' href='%23a' transform='rotate(30 0 0) scale(1.3)'/%3E%3Cuse stroke='%231e69a6' href='%23a' transform='rotate(40 0 0) scale(1.4)'/%3E%3Cuse stroke='%230f74b1' href='%23a' transform='rotate(50 0 0) scale(1.5)'/%3E%3Cuse stroke='%230080bb' href='%23a' transform='rotate(60 0 0) scale(1.6)'/%3E%3Cuse stroke='%23008bc5' href='%23a' transform='rotate(70 0 0) scale(1.7)'/%3E%3Cuse stroke='%230096ce' href='%23a' transform='rotate(80 0 0) scale(1.8)'/%3E%3Cuse stroke='%2300a2d6' href='%23a' transform='rotate(90 0 0) scale(1.9)'/%3E%3Cuse stroke='%2300aede' href='%23a' transform='rotate(100 0 0) scale(2)'/%3E%3Cuse stroke='%2300b9e6' href='%23a' transform='rotate(110 0 0) scale(2.1)'/%3E%3Cuse stroke='%2300c5ec' href='%23a' transform='rotate(120 0 0) scale(2.2)'/%3E%3Cuse stroke='%2300d1f2' href='%23a' transform='rotate(130 0 0) scale(2.3)'/%3E%3Cuse stroke='%2300ddf7' href='%23a' transform='rotate(140 0 0) scale(2.4)'/%3E%3Cuse stroke='%2300e8fb' href='%23a' transform='rotate(150 0 0) scale(2.5)'/%3E%3Cuse stroke='%230CF4FF' href='%23a' transform='rotate(160 0 0) scale(2.6)'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.productsBtn {
+  color: lightseagreen;
+  background-color: white;
+  border: 2px lightseagreen solid;
+  padding: 0.5em 2em;
+  border-radius: 20px;
+  font-family: $title-font;
+  cursor: pointer;
+  transition: 0.5s ease-in all;
+
+  &:hover {
+    color: white;
+    background-color: lightseagreen;
+    border: 2px white solid;
+    transition: 0.5s ease-in all;
+  }
+}
+.commerce-wrapper {
+  background-color: white;
+  border-radius: 50px;
+  width: 60%;
+  margin: 5em 0;
+  padding: 5em 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .commerce-title {
+    color: orange;
+    font-family: $title-font;
+    font-size: 2.5em;
+  }
+  .commerce-subTitle {
+    font-family: $title-font;
+    font-size: 1.5em;
+    line-height: 3;
+  }
+}
+.planet-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .planet-name {
+    font-family: $title-font;
+    font-size: 1.5em;
+    line-height: 3;
+    color: orange;
+  }
+  .product-commerce {
+    .product-title {
+      font-family: $title-font;
+      font-size: 1.3em;
+      line-height: 3;
+      color: lightseagreen;
+      text-align: center;
+    }
+    .product-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .product-info-item {
+      line-height: 2;
+      font-family: $text-font;
+    }
+    .input-commerce {
+      text-align: center;
+      border: 0;
+      margin: 0.5em 0;
+      border-bottom: 1px solid #d6d5d5;
+      &:focus {
+        outline: none;
+        border-bottom: 2px solid aqua;
+      }
+    }
+    .error {
+      border-radius: 10px;
+      border: 1px solid red;
+      &:focus {
+        border: 1px solid red;
+      }
+    }
+    button:disabled,
+    button[disabled] {
+      border: 1px solid #999999;
+      background-color: #cccccc;
+      color: #666666;
+      cursor: not-allowed;
+    }
+
+    .commerce-btn {
+      cursor: pointer;
+      font-family: $title-font;
+      margin: 1em;
+      padding: 0.4em 2.5em;
+      border-radius: 20px;
+    }
+    .buy-btn {
+      background-color: lightseagreen;
+      color: white;
+      border: 2px solid white;
+      transition: 0.5s ease-in all;
+      &:hover {
+        background-color: white;
+        color: lightseagreen;
+        border: 2px solid lightseagreen;
+        transition: 0.5s ease-in all;
+      }
+    }
+    .sell-btn {
+      background-color: orange;
+      color: white;
+      border: 2px solid white;
+      transition: 0.5s ease-in all;
+
+      &:hover {
+        background-color: white;
+        color: orange;
+        border: 2px solid orange;
+        transition: 0.5s ease-in all;
+      }
+    }
+  }
+}

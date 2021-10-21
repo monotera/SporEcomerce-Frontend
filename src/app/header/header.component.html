@@ -1,0 +1,18 @@
+<nav class="header-nav">
+    <div class="hamburger" (click)="open()">
+        <div class="line one"></div>
+        <div class="line two"></div>
+        <div class="line three"></div>
+    </div>
+    <ul class="nav-links">
+        <li><a class="nav-link" [ngClass]="activeLink === '/' ? 'active':''" (click)="onClick('/')">Home</a></li>
+        <li><a class="nav-link " [ngClass]="activeLink === '/navigation' ? 'active':''"
+                (click)="onClick('/navigation')">Navigate</a></li>
+        <li><a class="nav-link " [ngClass]="activeLink === '/info' ? 'active':''"
+                (click)="onClick('/info')">Information</a>
+        </li>
+        <li><a class="nav-link " [ngClass]="activeLink === '/account' ? 'active':''"
+                (click)="onClick('/account')">Account</a>
+        </li>
+    </ul>
+</nav>
