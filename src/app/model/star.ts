@@ -1,3 +1,4 @@
+import { Planet } from "./planet";
 export class Star{
   constructor(
     public id: number,
@@ -8,6 +9,6 @@ export class Star{
     public nearStars: any,
     public isInHabited: boolean,
     public spaceLobby: any,
-    public planetList: any,
+    public planetList: Planet[],
   ){}
 }

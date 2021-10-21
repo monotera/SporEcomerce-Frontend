@@ -15,7 +15,7 @@ import { PlayerService } from '../shared/player.service';
 })
 export class NavigationComponent implements OnInit {
 
-  star: Star = new Star(-1,-1,-1,-1,"",null,false,null, null)
+  star: Star = new Star(-1,-1,-1,-1,"",null,false,null, [])
   player: Player = new Player(-1,"","",new Crew(-1,"",0,0,null,new Spaceship(0,"",0,0)))
   starList: Star[] = []
   idStarN: number[] = []
@@ -32,6 +32,11 @@ export class NavigationComponent implements OnInit {
 
     this._router.navigateByUrl(`/navigation?star_id=${id}`)
     this.ngInit()
+  }
+
+  openComerce(id: number){
+    this._router.navigateByUrl(`/comerce?star_id=${id}`)
+
   }
 
   ngInit(): void {
