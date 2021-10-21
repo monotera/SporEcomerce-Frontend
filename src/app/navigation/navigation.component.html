@@ -1,4 +1,5 @@
-<section class="nav-wrapper-bg">
+<app-loader *ngIf="!isLoaded"></app-loader>
+<section class="nav-wrapper-bg" *ngIf="isLoaded">
   <div class="nav-main-wrapper">
     <h1 class="nav-title">SporEcomerce</h1>
   </div>
