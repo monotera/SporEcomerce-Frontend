@@ -54,10 +54,10 @@ export class ComerceComponent implements OnInit {
       this.crew_products = player.crewmembers.products
       this.crewService.getAvailableLoad(Number(this.crew_id)).subscribe(capacity => { this.available_load = capacity })
     })
-    
+
   }
 
-  
+
   trackByIndex(index: number, obj: any): any {
     return index;
   }
@@ -72,7 +72,7 @@ export class ComerceComponent implements OnInit {
     }
     this.starService.buyProduct(this.amounts[input_index], pxp.id, Number(this.crew_id)).subscribe(res => {
       alert("Your transaction was successful!")
-      window.location.reload(true)
+      window.location.reload()
     }, err => {
       alert("Error!!")
     })
@@ -84,7 +84,7 @@ export class ComerceComponent implements OnInit {
         if (found) {
           this.starService.sellProduct(this.amounts[input_index], pxp.id, found.id).subscribe(res => {
             alert("Your transaction was successful!")
-            window.location.reload(true)
+            window.location.reload()
           }, err => {
             alert("Error you reach your max !!")
           })
