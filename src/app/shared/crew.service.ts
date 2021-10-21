@@ -21,4 +21,8 @@ export class CrewService {
   getThePlayer(): Observable<Player> {
     return this.http.get<Player>("http://localhost:8080/player/theplayer");
   }
+
+  modNameCrew(){
+
+  }
 }
