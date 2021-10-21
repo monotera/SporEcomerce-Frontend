@@ -1,0 +1,2 @@
+PUT http://localhost:8080/player/mod_name?player_id=930&newName=AAA HTTP/1.1
+content-type: application/json
