@@ -45,6 +45,7 @@ export class NavigationComponent implements OnInit {
         {
           this.star = star;
           this.moveShip(this.star, this.player);
+          this.isLoaded = true;
 
       }, err => {
         this._router.navigateByUrl('/star_not_found');})
@@ -61,7 +62,6 @@ export class NavigationComponent implements OnInit {
       alert("game time was exceeded!")
     }
       this.starList = stars;
-      this.isLoaded = true;
     }, err => {
       this._router.navigateByUrl('/NearStar_not_found');})
   }
