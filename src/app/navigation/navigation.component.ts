@@ -53,8 +53,12 @@ export class NavigationComponent implements OnInit {
 
   }
 
-  moveShip(star: Star, player: Player){
-    this.starService.findNearStar(this.star.id).subscribe(stars =>{
+  moveShip(star: Star, player: Player) {
+    
+    this.starService.findNearStar(this.star.id).subscribe(stars => {
+      if (player.crewmembers.accTime > 80000) {
+      alert("game time was exceeded!")
+    }
       this.starList = stars;
       this.isLoaded = true;
     }, err => {
