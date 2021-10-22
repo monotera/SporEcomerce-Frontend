@@ -1,3 +1,49 @@
-<div>
-  <p>navigation works!</p>
-</div>
+<app-loader *ngIf="!isLoaded"></app-loader>
+<section class="nav-wrapper-bg" *ngIf="isLoaded">
+  <div class="nav-main-wrapper">
+    <h1 class="nav-title">SporEcomerce</h1>
+  </div>
+  <div class="nav-wrapper2">
+    <div class="nav-wrapper" *ngIf="star.id != -1">
+      <h1 class="nav-title">Possible movements</h1>
+      <section class="nav-section">
+        <div class="col">
+          <h2 class="nav-subtitle">{{star.name}}</h2>
+          <!--Add link required id_crew id_star-->
+          <a class="button" [routerLink]="['/comerce']" *ngIf="star.isInHabited">Comerce</a>
+          <a class="nobutton" *ngIf="!star.isInHabited">Comerce</a>
+        </div>
+        <div class="nearstars" *ngFor="let stars of starList">
+            <li><h3 class="link" (click) = "moveSpaceship(stars.id)">{{stars.name}} <span *ngIf="stars.isInHabited" class="linkbool">isHabited</span></h3></li>
+        </div>
+      </section>
+    </div>
+
+    <div class="nav-wrapper" *ngIf="star.id != -1">
+      <h1 class="nav-title">Additional info</h1>
+      <section class="nav-section">
+        <h2 class="nav-subtitle">Star info</h2>
+        <ul>
+          <li>ID star: {{star.id}}</li>
+          <li>X position: {{star.x}}</li>
+          <li>Y position: {{star.y}}</li>
+          <li>Z position: {{star.z}}</li>
+          <li>Inhabited star: {{star.isInHabited}}</li>
+        </ul>
+        <h2 class="nav-subtitle">Lobby</h2>
+      </section>
+      <section class="status">
+        <div class="lobby" *ngFor="let spaceship of star.spaceLobby">
+          <ul>
+            <li>{{spaceship.ship_name}}</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="nav-error" *ngIf="star.id == -1">
+    <h1>An error has occurred</h1>
+  </div>
+
+</section>

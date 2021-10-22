@@ -16,34 +16,22 @@ export class ComerceComponent implements OnInit {
 
   amounts: number[] = []
   products_index: number[] = []
-  star: Star = new Star(0, "", [])
+  star: Star = new Star(-1,-1,-1,-1,"",null,false,null, [])
   credits: number = 0
   crew_id: number = 0
-  star_id: string | null = null
+  star_id: number | null = null
   isLoaded: boolean = false
   crew_products: any[] = []
   available_load:number = 0
+  ship_id: number = 0;
 
   constructor(private starService: StarService, private route: ActivatedRoute, private _router: Router, private crewService: CrewService) { }
 
   ngOnInit(): void {
-    this.star_id = this.route.snapshot.queryParamMap.get('star_id');
+
     this.getCrewData()
 
     //fill inputs with 1
-    this.starService.findCrew(Number(this.star_id)).subscribe(star => {
-      this.star = star
-      this.star.planetList.forEach(planet => {
-        planet.product_list.forEach(pxp => {
-          this.amounts.push(1)
-        })
-      })
-      this.isLoaded = true
-
-    }, err => {
-      this._router.navigateByUrl('/star_not_found');
-    })
-
 
   }
 
@@ -52,7 +40,23 @@ export class ComerceComponent implements OnInit {
       this.crew_id = player.crewmembers.id
       this.credits = player.crewmembers.credits
       this.crew_products = player.crewmembers.products
+      this.ship_id = player.crewmembers.space_crew.id
       this.crewService.getAvailableLoad(Number(this.crew_id)).subscribe(capacity => { this.available_load = capacity })
+
+      this.starService.findStar(this.ship_id).subscribe(star => {
+        this.star_id = star.id
+        this.starService.findCrew(Number(this.star_id)).subscribe(star => {
+          this.star = star
+          this.star.planetList.forEach(planet => {
+            planet.product_list.forEach(pxp => {
+              this.amounts.push(1)
+            })
+          })
+          this.isLoaded = true
+        }, err => {
+          this._router.navigateByUrl('/star_not_found');
+        })
+      })
     })
 
   }
@@ -102,6 +106,6 @@ export class ComerceComponent implements OnInit {
     }
   }
   redirect() {
-    this._router.navigateByUrl(`/crew?id=${this.crew_id}`);
+    this._router.navigateByUrl(`/crew`);
   }
 }
