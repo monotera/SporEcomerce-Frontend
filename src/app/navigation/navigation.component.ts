@@ -7,6 +7,7 @@ import { Crew } from '../model/crew';
 import { Spaceship } from '../model/spaceship';
 import { StarService } from '../shared/star.service';
 import { PlayerService } from '../shared/player.service';
+import { CrewService } from '../shared/crew.service';
 
 @Component({
   selector: 'app-navigation',
@@ -21,38 +22,29 @@ export class NavigationComponent implements OnInit {
   idStarN: number[] = []
   isLoaded: boolean = false
   pos: number = 0
+  message: String[] = []
 
-  constructor(private starService: StarService,private route: ActivatedRoute, private playerService: PlayerService, private _router: Router) { }
+  constructor(private starService: StarService,private route: ActivatedRoute, private playerService: PlayerService, private _router: Router, private crewService: CrewService) { }
 
   ngOnInit(): void {
     this.ngInit()
   }
 
   moveSpaceship(id:number){
-
-    this.starService.moveShip(this.star.id, id, this.player.crewmembers.space_crew.id).subscribe(star =>console.log("a"))
-    this.ngInit()
+    this.isLoaded = false;
+    this.starService.moveShip(this.star.id, id, this.player.crewmembers.space_crew.id).subscribe(star => this.star = star)
+    this.moveShip(this.star, this.player)
   }
 
   ngInit(): void {
-
-
-    //this.playerService.findPos(this.player.id).subscribe(pos => this.pos = pos)
-    //this.starService.findNearStar(this.pos).subscribe(stars => this.starList = stars, err => {
-      //this._router.navigateByUrl('/not_found');}))
 
     this.starService.getThePlayer().subscribe(player => {
       this.player = player;
       this.starService.findStar(this.player.crewmembers.space_crew.id).subscribe(star =>
         {
           this.star = star;
+          this.moveShip(this.star, this.player);
 
-          this.starService.findNearStar(this.star.id).subscribe(stars =>{
-            this.starList = stars
-          }, err => {
-            this._router.navigateByUrl('/NearStar_not_found');})
-
-          this.isLoaded = true;
       }, err => {
         this._router.navigateByUrl('/star_not_found');})
 
@@ -60,4 +52,19 @@ export class NavigationComponent implements OnInit {
       this._router.navigateByUrl('/player_not_found');})
 
   }
+
+  moveShip(star: Star, player: Player){
+    this.starService.findNearStar(this.star.id).subscribe(stars =>{
+      this.starList = stars;
+      this.isLoaded = true;
+    }, err => {
+      this._router.navigateByUrl('/NearStar_not_found');})
+  }
+
+  terminate(){
+    this.crewService.terminate(this.player.id).subscribe(message => this.message = message)
+    alert(`Total time: ${this.message[0]} Total Earned: ${this.message[1]}`)
+    this._router.navigateByUrl('/')
+  }
+
 }
