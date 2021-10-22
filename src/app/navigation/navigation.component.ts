@@ -62,9 +62,16 @@ export class NavigationComponent implements OnInit {
   }
 
   terminate(){
-    this.crewService.terminate(this.player.id).subscribe(message => this.message = message)
-    alert(`Total time: ${this.message[0]} Total Earned: ${this.message[1]}`)
-    this._router.navigateByUrl('/')
+    if(this.player.player_role == "CAPTAIN"){
+      this.crewService.terminate(this.player.id).subscribe(stat => {
+        alert(`Total time: ${this.player.crewmembers.accTime} Total Earned: ${this.player.crewmembers.credits}`)
+        this._router.navigateByUrl('/')
+      })
+
+    }
+    else
+      alert("Only the captain can finish the game")
+
   }
 
 }

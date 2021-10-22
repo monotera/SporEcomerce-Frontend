@@ -32,8 +32,8 @@ export class CrewService {
   modNameCrew(crew_id: number, newName: string){
     return this.http.put<Boolean>(`http://localhost:8080/crew/change_crewName?crew_id=${crew_id}&newName=${newName}`, this.httpOptions);
   }
-  terminate(player_id: number): Observable<String[]>{
-    return this.http.get<String[]>(`http://localhost:8080/crew/game_over?player_id=${player_id}`,
+  terminate(player_id: number): Observable<Boolean>{
+    return this.http.put<Boolean>(`http://localhost:8080/crew/game-over?player_id=${player_id}`,
     this.httpOptions
     );
   }
