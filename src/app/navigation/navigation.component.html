@@ -10,11 +10,11 @@
         <div class="col">
           <h2 class="nav-subtitle">{{star.name}}</h2>
           <!--Add link required id_crew id_star-->
-          <a class="button" (click) = "openComerce(star.id)" *ngIf="star.isInHabited">Comerce</a>
+          <a class="button" [routerLink]="['/comerce']" *ngIf="star.isInHabited">Comerce</a>
           <a class="nobutton" *ngIf="!star.isInHabited">Comerce</a>
         </div>
         <div class="nearstars" *ngFor="let stars of starList">
-            <li><h3 class="link" (click) = "moveSpaceship(stars.id)">{{stars.name}} <span class="linkbool">isHabited: {{stars.isInHabited}}</span></h3></li>
+            <li><h3 class="link" (click) = "moveSpaceship(stars.id)">{{stars.name}} <span *ngIf="stars.isInHabited" class="linkbool">isHabited</span></h3></li>
         </div>
       </section>
     </div>

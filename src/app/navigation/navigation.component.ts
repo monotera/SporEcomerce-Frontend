@@ -34,27 +34,37 @@ export class NavigationComponent implements OnInit {
     this.ngInit()
   }
 
-  openComerce(id: number){
-    this._router.navigateByUrl(`/comerce?star_id=${id}`)
-
-  }
-
   ngInit(): void {
 
-    this.playerService.getThePLayer().subscribe(player => this.player = player, err => {
-      this._router.navigateByUrl('/not_found player');})
 
     //this.playerService.findPos(this.player.id).subscribe(pos => this.pos = pos)
     //this.starService.findNearStar(this.pos).subscribe(stars => this.starList = stars, err => {
       //this._router.navigateByUrl('/not_found');}))
-    this.starService.findNearStar(501).subscribe(stars => this.starList = stars, err => {
-      this._router.navigateByUrl('/not_found starList');})
 
-    this.starService.findStar(501).subscribe(star =>
-      {
-        this.star = star;
-        this.isLoaded = true;
-    })
+    this.starService.getThePlayer().subscribe(player => {
+      this.player = player;
+      this.starService.findStar(this.player.crewmembers.space_crew.id).subscribe(star =>
+        {
+          this.star = star;
+
+          this.starService.findNearStar(this.star.id).subscribe(stars =>{
+            this.starList = stars
+          }, err => {
+            //this._router.navigateByUrl('/not_found starList');
+            console.log(err);})
+
+          this.isLoaded = true;
+      }, err => {
+        //this._router.navigateByUrl('/not_found star');
+        console.log(err);})
+
+
+    }, err => {
+      //this._router.navigateByUrl('/not_found player');
+    console.log(err);})
+
+
+
 
 
   }

@@ -1,6 +1,7 @@
 @import "../../styles.scss";
 
 .account-wrapper-bg {
+  height: 100vh;
   max-width: 100vw;
   display: flex;
   align-items: center;
@@ -29,28 +30,52 @@
   justify-content: center;
   width: 50%;
   padding: 5em 0;
+  font-family: $title-font;
+  margin-left: 1em;
+  margin-right: 1em;
 
   .account-title {
     color: orange;
-    font-family: $title-font;
     font-size: 2.5em;
+    margin: 1em 0;
   }
   .account-section {
-    margin: 1em 0;
     display: flex;
     padding: 1em 0;
     flex-direction: column;
     align-items: center;
-    font-family: $text-font;
     text-align: center;
     li {
       font-size: 1.1em;
       line-height: 2;
     }
     .account-subtitle {
-      font-family: $title-font;
       font-size: 2em;
       line-height: 3;
+    }
+  }
+  .row{
+    flex-direction: row;
+    padding: 1em;
+    .account-btn{
+      margin: 0 1em;
+    }
+  }
+  .account-btn {
+    color: lightseagreen;
+    background-color: white;
+    border: 2px lightseagreen solid;
+    padding: 0.5em 2em;
+    border-radius: 20px;
+    font-family: $title-font;
+    cursor: pointer;
+    transition: 0.5s ease-in all;
+
+    &:hover {
+      color: white;
+      background-color: lightseagreen;
+      border: 2px white solid;
+      transition: 0.5s ease-in all;
     }
   }
 

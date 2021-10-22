@@ -114,19 +114,30 @@
 
 .button{
   text-decoration: none;
-  color: white;
-  background-color: green;
-  border-radius: 50px;
-  padding: 0.5em;
+  color: lightseagreen;
+  background-color: white;
+  border: 2px lightseagreen solid;
+  padding: 0.5em 2em;
+  border-radius: 20px;
   margin-left: 5%;
   cursor: pointer;
+  font-family: $title-font;
+  cursor: pointer;
+  transition: 0.5s ease-in all;
+  &:hover {
+    color: white;
+    background-color: lightseagreen;
+    border: 2px white solid;
+    transition: 0.5s ease-in all;
+  }
 }
 .nobutton{
   text-decoration: none;
-  color: white;
-  background-color: gray;
-  border-radius: 50px;
-  padding: 0.5em;
+  color: #666666;
+  background-color: #cccccc;
+  border: 1px solid #999999;
+  padding: 0.5em 2em;
+  border-radius: 20px;
   margin-left: 5%;
   cursor: not-allowed;
 }

@@ -11,7 +11,7 @@ import { Star } from '../model/star';
 export class StarService {
   constructor(private http: HttpClient) {}
   findStar(id: number): Observable<Star> {
-    return this.http.get<Star>('http://localhost:8080/star?id=' + id);
+    return this.http.get<Star>('http://localhost:8080/spaceship/ship-star?ship_id=' + id);
   }
   findNearStar(id: number): Observable<Star[]> {
     return this.http.get<Star[]>(
