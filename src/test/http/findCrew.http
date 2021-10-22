@@ -1,1 +1,5 @@
-GET http://localhost:8080/crew?crew_id=41 HTTP/1.1
+//GET http://localhost:8080/crew?crew_id=41 HTTP/1.1
+
+
+
+GET http://localhost:8080/player?player_id=42 HTTP/1.1

@@ -1,0 +1,2 @@
+PUT http://localhost:8080/pxp/buy?amountProducts=10&pxp_id=161&crew_id=219 HTTP/1.1
+content-type: application/json
