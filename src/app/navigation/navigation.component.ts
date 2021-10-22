@@ -34,6 +34,7 @@ export class NavigationComponent implements OnInit {
     this.isLoaded = false;
     this.starService.moveShip(this.star.id, id, this.player.crewmembers.space_crew.id).subscribe(star => this.star = star)
     this.moveShip(this.star, this.player)
+    this.ngOnInit()
   }
 
   ngInit(): void {
@@ -54,7 +55,7 @@ export class NavigationComponent implements OnInit {
   }
 
   moveShip(star: Star, player: Player) {
-    
+
     this.starService.findNearStar(this.star.id).subscribe(stars => {
       if (player.crewmembers.accTime > 80000) {
       alert("game time was exceeded!")
