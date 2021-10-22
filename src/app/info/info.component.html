@@ -1,3 +1,20 @@
-<div>
-  <p>info works!</p>
-</div>
+<section class="info-wrapper-bg">
+  <div class="info-wrapper" *ngIf="true">
+    <h1 class="info-title">Information</h1>
+    <ul>
+      <li>The first time you enter navigation may take some time to load</li>
+      <li>The game starts with 40000 starts with 1% probability of being inhabited with planets to share, sell or both, also there are 100 players distributed in 10 teams</li>
+      <li>Only the captain can finish the game</li>
+      <li>To change the probability and find more easily stars to trade with change the following backend fields:
+        <ul>
+          <li>DatabaseInit.java: line 80: prob = 2; line 90: nStars = 40;</li>
+          <li>GalaxyGraph.java: line 17: private final int MAX_EDGES = 40; line 18: private final int MAX_VERTICES = 40;</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="info-error" *ngIf="false">
+    <h1>In maintenance</h1>
+  </div>
+
+</section>
