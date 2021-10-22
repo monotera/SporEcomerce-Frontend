@@ -32,7 +32,7 @@
   border-radius: 50px;
   justify-content: center;
   width: 50%;
-  padding: 1em 5em;
+  padding: 5em;
   font-family: $title-font;
 
   .info-title {
@@ -47,8 +47,8 @@
     align-items: center;
     text-align: center;
     li {
-      font-size: 1.1em;
-      line-height: 2;
+      font-size: 3em;
+      line-height: 6;
     }
     .info-subtitle {
       font-size: 2em;
@@ -81,7 +81,7 @@
     align-items: center;
     text-align: center;
     li {
-      font-size: 1.1em;
+      font-size: 3em;
       line-height: 2;
     }
     .info-subtitle {
