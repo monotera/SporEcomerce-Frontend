@@ -50,22 +50,14 @@ export class NavigationComponent implements OnInit {
           this.starService.findNearStar(this.star.id).subscribe(stars =>{
             this.starList = stars
           }, err => {
-            //this._router.navigateByUrl('/not_found starList');
-            console.log(err);})
+            this._router.navigateByUrl('/NearStar_not_found');})
 
           this.isLoaded = true;
       }, err => {
-        //this._router.navigateByUrl('/not_found star');
-        console.log(err);})
-
+        this._router.navigateByUrl('/star_not_found');})
 
     }, err => {
-      //this._router.navigateByUrl('/not_found player');
-    console.log(err);})
-
-
-
-
+      this._router.navigateByUrl('/player_not_found');})
 
   }
 }
