@@ -9,6 +9,12 @@ import { Star } from '../model/star';
   providedIn: 'root',
 })
 export class StarService {
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'my-auth-token',
+    }),
+  };
   constructor(private http: HttpClient) {}
   findStar(id: number): Observable<Star> {
     return this.http.get<Star>('http://localhost:8080/spaceship/ship-star?ship_id=' + id);
@@ -16,11 +22,6 @@ export class StarService {
   findNearStar(id: number): Observable<Star[]> {
     return this.http.get<Star[]>(
       'http://localhost:8080/star/near-stars?id=' + id
-    );
-  }
-  moveSpaceShip(idStar: number, idStarN: number) {
-    return this.http.get<Boolean>(
-      'http://localhost:8080/star?id=' + idStar + '&starN?id=' + idStarN
     );
   }
   findCrew(id: number): Observable<Star> {
@@ -41,10 +42,12 @@ export class StarService {
   getThePlayer(): Observable<Player> {
     return this.http.get<Player>('http://localhost:8080/player/theplayer');
   }
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: 'my-auth-token',
-    }),
-  };
+
+  moveShip(starOriginID: number, starDesID: number, shipID: number): Observable<Star>{
+    return this.http.put<Star>(`http://localhost:8080/spaceship/move-ship?star_origin_id=${starOriginID}&star_des_id=${starDesID}&ship_id=${shipID}`,
+    this.httpOptions
+    );
+  }
+
+
 }

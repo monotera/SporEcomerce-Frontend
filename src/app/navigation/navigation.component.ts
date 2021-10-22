@@ -30,7 +30,7 @@ export class NavigationComponent implements OnInit {
 
   moveSpaceship(id:number){
 
-    this._router.navigateByUrl(`/navigation?star_id=${id}`)
+    this.starService.moveShip(this.star.id, id, this.player.crewmembers.space_crew.id).subscribe(star =>console.log("a"))
     this.ngInit()
   }
 

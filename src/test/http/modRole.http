@@ -1,4 +1,2 @@
 PUT http://localhost:8080/player/mod_role?player_id=879&newRole=PILOT HTTP/1.1
 content-type: application/json
-
-    http://localhost:8080/player/mod_role?player_id=983&newRole=PILOT

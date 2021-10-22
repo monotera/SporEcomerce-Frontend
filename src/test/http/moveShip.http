@@ -1,0 +1,2 @@
+PUT http://localhost:8080/spaceship/move-ship?star_origin_id=982&star_des_id=972&ship_id=983 HTTP/1.1
+content-type: application/json
