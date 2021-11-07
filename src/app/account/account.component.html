@@ -22,14 +22,12 @@
   <div class="account-wrapper" *ngIf="player.id != -1">
     <h1 class="account-title">Config</h1>
     <div class="row">
-      <a>Enter a new name to change: </a>
-      <input type="text" [(ngModel)]="nameInput" name="filterNameInput">
-      <button class="account-btn name-btn" (click)="changename()">Apply</button>
-    </div>
-    <div class="row">
       <a>Enter a new valid role to change: </a>
       <input type="text" [(ngModel)]="roleInput" name="filterRoleInput">
       <button class="account-btn role-btn" (click)="changerole()">Apply</button>
+    </div>
+    <div class="row">
+      <p>(ROLE_CAPTAIN, ROLE_PILOT, ROLE_MERCHANT)</p>
     </div>
     <div class="row">
       <a>Enter a new crew id to change: </a>

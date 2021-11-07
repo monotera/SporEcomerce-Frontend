@@ -1,0 +1,9 @@
+<form (ngSubmit)="doLogin()">
+    <input type="text" [(ngModel)]="user" name="user">
+    <input type="text" [(ngModel)]="password" name="pass">
+    <button type="submit" id="login">Login</button>
+</form>
+<Button (click)="info()">click</Button>
+<pre>
+    {{message}}
+</pre>
