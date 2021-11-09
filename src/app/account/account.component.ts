@@ -45,7 +45,7 @@ export class AccountComponent implements OnInit {
         this.IsCaptain();
       },
       (err) => {
-        this._router.navigateByUrl('/star_not_found');
+        this._router.navigateByUrl('/login');
       }
     );
   }

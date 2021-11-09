@@ -70,7 +70,7 @@ export class NavigationComponent implements OnInit {
           );
       },
       (err) => {
-        this._router.navigateByUrl('/player_not_found');
+        this._router.navigateByUrl('/login');
       }
     );
   }
