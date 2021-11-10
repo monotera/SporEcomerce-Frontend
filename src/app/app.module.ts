@@ -15,6 +15,7 @@ import { LoaderComponent } from './loader/loader.component'
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { Error404Component } from './error404/error404.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { Error404Component } from './error404/error404.component';
     ComerceComponent,
     LoaderComponent,
     Error404Component,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

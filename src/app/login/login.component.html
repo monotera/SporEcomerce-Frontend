@@ -1,0 +1,11 @@
+<div class="login-wrapper">
+    <div class="login-white-wrapper">
+        <h1 class="login-title">LOGIN</h1>
+        <form class="login-form" (ngSubmit)="doLogin()">
+            <input class="input-login" type="text" [(ngModel)]="user" name="user">
+            <input class="input-login" type="text" [(ngModel)]="password" name="pass">
+            <button class="btn-login" type="submit" id="login">Submit</button>
+        </form>
+    </div>
+
+</div>

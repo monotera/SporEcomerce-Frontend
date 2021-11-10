@@ -8,6 +8,7 @@ import { CrewmembersComponent } from './crewmembers/crewmembers.component';
 import { AccountComponent } from './account/account.component';
 import { ComerceComponent } from './comerce/comerce.component';
 import { Error404Component } from './error404/error404.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -16,6 +17,8 @@ const routes: Routes = [
   {path: 'crew', component: CrewmembersComponent},
   {path: 'account', component: AccountComponent},
   { path: 'comerce', component: ComerceComponent },
+  {path: 'login', component: LoginComponent },
+  
   {path: '**',pathMatch: 'full', component: Error404Component}
   
 ];

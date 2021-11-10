@@ -14,5 +14,12 @@
         <li><a class="nav-link " [ngClass]="activeLink === '/account' ? 'active':''"
                 (click)="onClick('/account')">Account</a>
         </li>
+        <li>
+            <a class="nav-link " *ngIf="isLogged" (click)="logout()">Logout</a>
+        </li>
+        <li>
+            <a class="nav-link " *ngIf="isLogged == false" [ngClass]="activeLink === '/login' ? 'active':''"
+                (click)="onClick('/login')">Login</a>
+        </li>
     </ul>
 </nav>
