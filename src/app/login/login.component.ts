@@ -9,7 +9,7 @@ import { StarService } from '../shared/star.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  user = '';
+  user = 'TestUser';
   password = 'pass123';
 
   result: any;
