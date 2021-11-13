@@ -5,17 +5,17 @@
     <section class="account-section">
       <h2 class="account-subtitle">This is your account</h2>
       <ul>
-        <li>Player id: {{player.id}}</li>
-        <li>Player name: {{player.player_name}}</li>
-        <li>Player role: {{player.player_role}}</li>
+        <li id="accountliPlayerId">Player id: {{player.id}}</li>
+        <li id="accountliPlayerName">Player name: {{player.player_name}}</li>
+        <li id="accountliPlayerRole">Player role: {{player.player_role}}</li>
       </ul>
     </section>
     <section class="account-section">
       <h2 class="account-subtitle">Take a look at your crew</h2>
       <ul>
-        <li>crew name: {{player.crewmembers.crew_name}}</li>
+        <li id="accountliCrewName">crew name: {{player.crewmembers.crew_name}}</li>
       </ul>
-      <button class="account-btn" (click)="redirect()">Check your crew info</button>
+      <button id="accountbtnCrewInfo" class="account-btn" (click)="redirect()">Check your crew info</button>
     </section>
   </div>
 
@@ -23,21 +23,21 @@
     <h1 class="account-title">Config</h1>
     <div class="row">
       <a>Enter a new valid role to change: </a>
-      <input type="text" [(ngModel)]="roleInput" name="filterRoleInput">
-      <button class="account-btn role-btn" (click)="changerole()">Apply</button>
+      <input id="accounttxtRole" type="text" [(ngModel)]="roleInput" name="filterRoleInput">
+      <button id="accountbtnRole" class="account-btn role-btn" (click)="changerole()">Apply</button>
     </div>
     <div class="row">
       <p>(ROLE_CAPTAIN, ROLE_PILOT, ROLE_MERCHANT)</p>
     </div>
     <div class="row">
       <a>Enter a new crew id to change: </a>
-      <input type="text" [(ngModel)]="crewIDInput" name="filterCrewIDInput">
-      <button class="account-btn crew-id-btn" (click)="changeByIDcrew()">Apply</button>
+      <input id="accounttxtNewCrew" type="text" [(ngModel)]="crewIDInput" name="filterCrewIDInput">
+      <button id="accountbtnNewCrew" class="account-btn crew-id-btn" (click)="changeByIDcrew()">Apply</button>
     </div>
     <div class="row">
       <a>Enter a new crew name to change: </a>
-      <input type="text" [(ngModel)]="crewNameInput" name="filterCrewNameInput">
-      <button class="account-btn crew-name-btn" (click)="changeNamecrew()">Apply</button>
+      <input id="accounttxtNewCrewName" type="text" [(ngModel)]="crewNameInput" name="filterCrewNameInput">
+      <button id="accountbtnNewCrewName" class="account-btn crew-name-btn" (click)="changeNamecrew()">Apply</button>
     </div>
   </div>
   <div class="account-error" *ngIf="player.id == -1">
