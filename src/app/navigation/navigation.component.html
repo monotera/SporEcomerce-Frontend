@@ -8,7 +8,7 @@
       <h1 class="nav-title">Possible movements</h1>
       <section class="nav-section">
         <div class="col">
-          <h2 class="nav-subtitle">{{star.name}}</h2>
+          <h2 id="navStarName"class="nav-subtitle">{{star.name}}</h2>
           <!--Add link required id_crew id_star-->
           <a id="navibtnCommerce" class="button" [routerLink]="['/comerce']" *ngIf="star.isInHabited">Comerce</a>
           <a class="nobutton" *ngIf="!star.isInHabited">Comerce</a>
