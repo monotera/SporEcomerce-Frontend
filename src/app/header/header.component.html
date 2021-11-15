@@ -1,25 +1,26 @@
 <nav class="header-nav">
-    <div class="hamburger" (click)="open()">
+    <div id="hamburger" class="hamburger" (click)="open()">
         <div class="line one"></div>
         <div class="line two"></div>
         <div class="line three"></div>
     </div>
     <ul class="nav-links">
-        <li><a class="nav-link" [ngClass]="activeLink === '/' ? 'active':''" (click)="onClick('/')">Home</a></li>
-        <li><a class="nav-link " [ngClass]="activeLink === '/navigation' ? 'active':''"
+        <li><a id="navliHome" class="nav-link" [ngClass]="activeLink === '/' ? 'active':''"
+                (click)="onClick('/')">Home</a></li>
+        <li><a id="navliNavi" class="nav-link " [ngClass]="activeLink === '/navigation' ? 'active':''"
                 (click)="onClick('/navigation')">Navigate</a></li>
-        <li><a class="nav-link " [ngClass]="activeLink === '/info' ? 'active':''"
+        <li><a id="navliInfo" class="nav-link " [ngClass]="activeLink === '/info' ? 'active':''"
                 (click)="onClick('/info')">Information</a>
         </li>
-        <li><a class="nav-link " [ngClass]="activeLink === '/account' ? 'active':''"
+        <li><a id="navliAccount" class="nav-link " [ngClass]="activeLink === '/account' ? 'active':''"
                 (click)="onClick('/account')">Account</a>
         </li>
         <li>
-            <a class="nav-link " *ngIf="isLogged" (click)="logout()">Logout</a>
+            <a id="navliLogout" class="nav-link " *ngIf="isLogged" (click)="logout()">Logout</a>
         </li>
         <li>
-            <a class="nav-link " *ngIf="isLogged == false" [ngClass]="activeLink === '/login' ? 'active':''"
-                (click)="onClick('/login')">Login</a>
+            <a id="navliLogin" class="nav-link " *ngIf="isLogged == false"
+                [ngClass]="activeLink === '/login' ? 'active':''" (click)="onClick('/login')">Login</a>
         </li>
     </ul>
 </nav>
